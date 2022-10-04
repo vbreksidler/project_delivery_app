@@ -1,0 +1,62 @@
+.Table {
+  border-collapse: collapse;
+  margin: auto;
+  min-width: 1000px;
+}
+
+.ColumnTitle {
+  color: black;
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 400;
+  padding: 8px;
+}
+
+.ItemRow {
+  border-bottom: 4px solid white;
+  border-top: 4px solid white;
+  font-family: inherit;
+  font-size: 1rem;
+  padding: 10px;
+  text-align: center;
+}
+
+.ItemRow:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.ItemRow:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.ItemNumber {
+  background-color: var(--green-terciary);
+}
+
+.ItemName {
+  background-color: var(--gray-primary);
+  text-align: start;
+}
+
+.ItemQuantity {
+  background-color: var(--green-secondary);
+  color: white;
+}
+
+.ItemUnityPrice {
+  background-color: var(--purple-primary);
+  color: white;
+}
+
+.ItemSubTotal {
+  background-color: var(--blue-primary);
+  color: white;
+}
+
+.ItemButtonRemove {
+  background-color: var(--green-terciary);
+  border: none;
+  color: white;
+  outline: none;
+  width: 100%;
+}
