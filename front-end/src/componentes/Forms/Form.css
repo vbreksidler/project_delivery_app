@@ -12,7 +12,7 @@
 }
 
 .LoginForm, .RegisterForm {
-  background-color: #e3ecea;
+  background-color: var(--grey-primary);
   border: 1px solid  #b1c2be;
   border-radius: 5px;
   flex-direction: column;
@@ -44,7 +44,7 @@
 
 .FormFieldInput {
   background-color: white;
-  border: 1px solid rgb(138, 138, 138);
+  border: 1px solid #8a8a8a;
   color: black;
   font: inherit;
   height: 32px;
@@ -68,17 +68,17 @@
 
 .ButtonLogin {
   background-color: white;
-  border: 2px solid #036b52;
-  color: #036b52;
+  border: 2px solid var(--green-primary);
+  color: var(--green-primary);
 }
 
 .ButtonRegister {
-  background: #036b52;
+  background: var(--green-primary);
   color: white;
 }
 
 .ButtonRegister:hover {
-  background: #0c8365;
+  background: var(--green-secondary);
 }
 
 .Button:disabled {
