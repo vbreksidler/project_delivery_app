@@ -1,0 +1,16 @@
+.LoginPage {
+  display: grid;
+  grid-template-columns: auto 5px auto;
+}
+
+.Logo {
+  margin: auto;
+  width: 300px;
+}
+
+.Divisor {
+  background-color: #0c8365;
+  border-radius: 20%;
+  height: 100vh;
+  width: 5px;
+}
