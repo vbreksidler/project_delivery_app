@@ -4,6 +4,15 @@
   box-sizing: border-box;
 }
 
+:root {
+  --green-primary: #036b52;
+  --green-secondary: #0c8365;
+  --green-terciary: #2fc18c;
+  --gray-primary: #e3ecea;
+  --purple-primary: #421981;
+  --blue-primary: #056cf9;
+}
+
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
