@@ -1,24 +1,25 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styles from './styles.module.scss';
+import './BotaoVerdeEscuro.css';
 
 function botaoVerdeEscuro({ placeholder, click, isDisabled }) {
   return (
 
     <button
       disabled={ isDisabled }
-      className={ styles.button }
+      className="botaoVerdeEscuro"
       type="button"
       onClick={ click }
       data-testid="customer_products__button-cart"
     >
       <p>
-        VerCarrinho:  R$
+        Finalizar Compra
       </p>
       <p
         data-testid="customer_products__checkout-bottom-value"
       >
-        {(placeholder.toFixed(2)).replace('.', ',')}
+        R$
+        { (placeholder.toFixed(2)).replace('.', ',') }
       </p>
     </button>
 
@@ -26,7 +27,7 @@ function botaoVerdeEscuro({ placeholder, click, isDisabled }) {
 }
 
 botaoVerdeEscuro.propTypes = {
-  placeholder: PropTypes.number.isRequired,
+  placeholder: PropTypes.string.isRequired,
   isDisabled: PropTypes.bool.isRequired,
 };
 

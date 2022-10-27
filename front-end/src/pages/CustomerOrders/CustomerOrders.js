@@ -1,9 +1,7 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 import React, { useEffect, useState } from 'react';
-import { format } from 'date-fns';
 import OrderStatusCard from '../../componentes/OrderstatusCard/OrderStatusCard';
 import api from '../../helpers/api';
-import styles from './styles.module.scss';
 
 export default function CustomerOrders() {
   const user = JSON.parse(localStorage.getItem('user'));
@@ -17,9 +15,7 @@ export default function CustomerOrders() {
   }, []);
 
   return (
-    <div
-      className={ styles.container }
-    >
+    <div>
       {orders && (orders.map(({
         id,
         status,
@@ -32,7 +28,7 @@ export default function CustomerOrders() {
           id={ id }
           number={ id }
           status={ status }
-          date={ format(Date.parse(saleDate), 'dd/MM/yyyy') }
+          date={ saleDate }
           price={ totalPrice }
           address={ deliveryAddress }
           prefixId="customer_orders"

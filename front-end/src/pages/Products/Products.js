@@ -6,8 +6,6 @@ import BotaoVerdeEscuro
   from '../../componentes/Buttons/BotaoVerdeEscuro/BotaoVerdeEscuro';
 import { CartContext } from '../../contexts/CartContext';
 import styles from './styles.module.scss';
-import ProductCard from '../../componentes/ProductCard/ProductCard';
-import CounterProducts from '../../componentes/CounterProducts/CounterProducts';
 
 function Products() {
   const [products, setProducts] = React.useState([]);
@@ -77,18 +75,53 @@ function Products() {
   return (
     <div className={ styles.container }>
       {products.map?.((product, index) => (
-        <ProductCard
-          key={ `${product}${index}` }
-          product={ product }
-          index={ index }
+        <div
+          className={ styles.cardContainer }
+          key={ index }
         >
-          <CounterProducts
-            product={ product }
-            input={ input }
-            handleInput={ handleInput }
-            changeProductsQuantity={ changeProductsQuantity }
+          <p
+            data-testid={ `customer_products__element-card-title-${product.id}` }
+          >
+            { product.name }
+          </p>
+          <span
+            data-testid={ `customer_products__element-card-price-${product.id}` }
+          >
+            R$
+            { product.price.replace('.', ',') }
+          </span>
+          <img
+            src={ product.urlImage }
+            alt={ product.name }
+            width="100px"
+            data-testid={ `customer_products__img-card-bg-image-${product.id}` }
           />
-        </ProductCard>
+          <div className={ styles.QuantityButtonContainer }>
+            <button
+              type="button"
+              data-testid={ `customer_products__button-card-rm-item-${product.id}` }
+              onClick={ () => changeProductsQuantity('decrement', product) }
+            >
+              -
+            </button>
+            <input
+              type="text"
+              className="inputQuantity"
+              name={ product.id }
+              defaultValue={ 0 }
+              value={ input[product.id] }
+              data-testid={ `customer_products__input-card-quantity-${product.id}` }
+              onChange={ (e) => handleInput(e) }
+            />
+            <button
+              type="button"
+              data-testid={ `customer_products__button-card-add-item-${product.id}` }
+              onClick={ () => changeProductsQuantity('increment', product) }
+            >
+              +
+            </button>
+          </div>
+        </div>
       ))}
       <BotaoVerdeEscuro
         click={ handleSetCart }

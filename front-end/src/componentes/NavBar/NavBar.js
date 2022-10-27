@@ -1,30 +1,26 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import ButtonLogout from '../Buttons/LogoutButton/ButtonLogout';
-import styles from './styles.module.scss';
+import ButtonLogout from '../Buttons/ButtonLogout';
 
 function NavBar({ children }) {
   const { name } = JSON.parse(localStorage.getItem('user'));
 
   return (
-    <div
-      className={ styles.header }
-    >
-      <div
-        className={ styles.separatorLeft }
+    <div className="NavContainer">
+      {children}
+      <p
+        className="nameNavBar"
+        data-testid="customer_products__element-navbar-user-full-name"
       >
-        { children }
-      </div>
-      <div
-        className={ styles.separatorRigth }
-      >
-        <p
-          className={ styles.userName }
-          data-testid="customer_products__element-navbar-user-full-name"
-        >
-          { name }
-        </p>
-        <ButtonLogout />
+        Olá,
+        {' '}
+        { name }
+        !
+      </p>
+      <div className="FlexContainerNav">
+        <div className="buttonLogout">
+          <ButtonLogout />
+        </div>
       </div>
     </div>
   );

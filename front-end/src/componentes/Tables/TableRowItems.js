@@ -1,54 +1,64 @@
 import PropTypes from 'prop-types';
 import React from 'react';
 import formatToPrice from '../../helpers/formatToPrice';
-import './Table.css';
+import styles from './styles.module.scss';
 
 export default function TableRowItems(
   { testIdPrefix, itemNumber, description, quantity, unityValue, subTotal },
 ) {
   return (
-    <>
+    <div className={ styles.CustomerCardContainer }>
       <td
         data-testid={
           `${testIdPrefix}__element-order-table-item-number-${itemNumber - 1}`
         }
-        className="ItemNumber ItemRow"
       >
-        { itemNumber }
+        Produto nº:
+        {' '}
+        {itemNumber}
+        .
       </td>
       <td
         data-testid={
           `${testIdPrefix}__element-order-table-name-${itemNumber - 1}`
         }
-        className="ItemName ItemRow"
       >
-        { description }
+        Produto:
+        {' '}
+        {description}
+        .
       </td>
       <td
         data-testid={
           `${testIdPrefix}__element-order-table-quantity-${itemNumber - 1}`
         }
-        className="ItemQuantity ItemRow"
       >
-        { quantity }
+        Quantidade:
+        {' '}
+        {quantity}
+        .
       </td>
       <td
         data-testid={
           `${testIdPrefix}__element-order-table-unit-price-${itemNumber - 1}`
         }
-        className="ItemUnityPrice ItemRow"
       >
-        { formatToPrice(unityValue) }
+        Valor un.: R$
+        {' '}
+        {formatToPrice(unityValue)}
+        .
       </td>
       <td
         data-testid={
           `${testIdPrefix}__element-order-table-sub-total-${itemNumber - 1}`
         }
-        className="ItemSubTotal ItemRow"
       >
-        { formatToPrice(subTotal) }
+        Subtotal: R$
+        {' '}
+        {formatToPrice(subTotal)}
+        .
       </td>
-    </>
+    </div>
   );
 }
 

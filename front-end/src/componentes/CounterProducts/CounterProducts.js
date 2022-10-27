@@ -1,44 +1,28 @@
-import PropTypes from 'prop-types';
-import React from 'react';
-import styles from './styles.module.scss';
+import React, { useState } from 'react';
 
-function CounterProducts({ product, input, handleInput, changeProductsQuantity }) {
+function CounterProducts() {
+  const [quantity, setQuantity] = useState(0);
+
   return (
-    <div className={ styles.QuantityButtonContainer }>
+    <div>
       <button
         type="button"
-        data-testid={ `customer_products__button-card-rm-item-${product.id}` }
-        onClick={ () => changeProductsQuantity('decrement', product) }
+        onClick={ () => {
+          if (quantity > 0) setQuantity(quantity - 1);
+        } }
       >
         -
       </button>
-      <input
-        type="text"
-        className={ styles.inputQuantity }
-        name={ product.id }
-        defaultValue={ 0 }
-        value={ input[product.id] }
-        data-testid={ `customer_products__input-card-quantity-${product.id}` }
-        onChange={ (e) => handleInput(e) }
-      />
+      <p>{ quantity }</p>
       <button
         type="button"
-        data-testid={ `customer_products__button-card-add-item-${product.id}` }
-        onClick={ () => changeProductsQuantity('increment', product) }
+        onClick={ () => setQuantity(quantity + 1) }
       >
         +
       </button>
+      <p>{}</p>
     </div>
   );
 }
-
-CounterProducts.propTypes = {
-  handleInput: PropTypes.func.isRequired,
-  input: PropTypes.shape({}).isRequired,
-  product: PropTypes.shape({
-    id: PropTypes.number,
-  }).isRequired,
-  changeProductsQuantity: PropTypes.func.isRequired,
-};
 
 export default CounterProducts;

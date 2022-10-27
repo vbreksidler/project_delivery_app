@@ -55,7 +55,7 @@ function AddressCheckout() {
       <div className="AddressComponent">
         <div className="AddressFlex">
           <div className="AddressContent">
-            <p>P. Vendedora Responsável:</p>
+            <p>Vendedor</p>
             <select
               data-testid="customer_checkout__select-seller"
               className="AddressInput"

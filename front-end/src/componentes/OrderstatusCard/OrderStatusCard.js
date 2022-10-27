@@ -1,8 +1,7 @@
 import PropTypes from 'prop-types';
 import React from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import styles from './styles.module.scss';
-import StatusTag from '../StatusTag/StatusTag';
 
 export default function OrderStatusCard({ id,
   status,
@@ -13,8 +12,6 @@ export default function OrderStatusCard({ id,
   prefixId,
   redirect,
 }) {
-  const location = useLocation();
-  console.log(location.pathname);
   return (
     <Link
       to={ `/${redirect}/orders/${id}` }
@@ -24,44 +21,43 @@ export default function OrderStatusCard({ id,
         className={ styles.orderNumber }
         data-testid={ `${prefixId}__element-order-id-${id}` }
       >
-        Pedido
         {number}
       </div>
-      <div>
-        <div
-          className={ styles.cardLeft }
-        >
-          <StatusTag
+      <div className={ styles.orderDetails }>
+        <div>
+          <span
+            className={ styles.statusDetail }
             data-testid={ `${prefixId}__element-delivery-status-id-${id}` }
-            Orderstatus={ status }
           >
-            {status}
-          </StatusTag>
-          <div className={ styles.cardLeftSeparator }>
-            <span
-              data-testid={ `${prefixId}__element-order-date-${id}` }
-            >
-              {date}
-            </span>
-            <span
-              data-testid={ `${prefixId}__element-card-price-${id}` }
-            >
-              R$
-              {' '}
-              {price.replace('.', ',')}
-            </span>
-          </div>
+            Status:
+            {' '}
+            { status }
+          </span>
+          <span
+            data-testid={ `${prefixId}__element-order-date-${id}` }
+            className={ styles.statusDetail }
+          >
+            Data:
+            {' '}
+            { date.replace('Z', ' ').replace('T', ' HORA: ').replace('.000', ' ') }
+          </span>
+          <span
+            data-testid={ `${prefixId}__element-card-price-${id}` }
+            className={ styles.statusDetail }
+          >
+            Total: R$
+            { price }
+          </span>
         </div>
         <div>
-          {
-            location.pathname === 'customer/orders' && (
-              <span
-                data-testid={ `${prefixId}__element-card-address-${id}` }
-              >
-                {address}
-              </span>
-            )
-          }
+          <span
+            className={ styles.statusDetail }
+            data-testid={ `${prefixId}__element-card-address-${id}` }
+          >
+            Endereço:
+            {' '}
+            { address }
+          </span>
         </div>
       </div>
     </Link>

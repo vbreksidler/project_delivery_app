@@ -1,5 +1,4 @@
 /* eslint-disable react-hooks/exhaustive-deps */
-import { format } from 'date-fns';
 import React, { useContext, useEffect, useState } from 'react';
 import OrderStatusCard from '../../componentes/OrderstatusCard/OrderStatusCard';
 import { AuthContext } from '../../contexts/AuthContext';
@@ -30,7 +29,7 @@ export default function SellerOrders() {
           id={ id }
           number={ id }
           status={ status }
-          date={ format(Date.parse(saleDate), 'dd/MM/yyyy') }
+          date={ saleDate }
           price={ totalPrice }
           address={ deliveryAddress }
           prefixId="seller_orders"

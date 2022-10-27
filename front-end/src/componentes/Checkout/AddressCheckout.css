@@ -1,36 +1,67 @@
 .AddressComponent {
-  box-shadow: 0 3px 10px #b5b5b5;
-  padding: 4px;
-  width: 100%;
+  margin-right:60px;
+  margin-left: 30px;
+  min-width: 550px;
+  background-color: #ff8833;
+  border-bottom: 1px transparent black;
+  border-right: 1px transparent black;
+  box-shadow: 1px 1px 1px 1px lightslategray;;
+  border-radius: 4px;
+  padding: 10px;
+  width: 80%;
+  height: 90%;
+  display: flex-wrap;
+  margin: 30px;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px;
+}
+
+p{
+  font-family: inherit;
+  font-size: 1rem;
 }
 
 .AddressFlex {
+  min-width: 10px;
+  margin: 5px;
   display: flex;
   justify-content: space-between;
   padding: 5px;
 }
 
 .AddressTitle {
-  margin-bottom: 10px;
+  min-width: 550px;
+  font-family: inherit;
+  font-size: 1.5rem;
+  margin-bottom: 3px;
+  margin-left: 5%;
   margin-top: 15px;
 }
 
 .AddressButton {
-  background-color: var(--green-secondary);
   border: none;
+  background-color: #66ff00;
   border-radius: 5px;
   bottom: 10px;
-  color: white;
+  color: black;
   font-size: larger;
   height: 50px;
   margin-bottom: 10px;
   margin-left: 40%;
-  outline: none;
   right: 10px;
   width: 250px;
 }
 
+.AddressButton:hover {
+  background-color: greenyellow;
+}
+
 .AddressInput {
+  min-width: 150px;
+  font-family: inherit;
+  font-size: 1rem;
+  border-radius: 5px;
   height: 30px;
   margin-bottom: 20px;
   margin-top: 5px;
